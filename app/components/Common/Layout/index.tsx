@@ -1,6 +1,6 @@
 import {NextPage} from "next";
 import {ReactNode} from "react";
-import CommonHeader from "../Header";
+import TheHeader from "../Header";
 
 type LayoutProps = {
     children: ReactNode
@@ -9,7 +9,7 @@ type LayoutProps = {
 const Layout: NextPage<LayoutProps> = ({ children }) => {
     return (
         <>
-            <CommonHeader />
+            <TheHeader />
             { children }
         </>
     )
