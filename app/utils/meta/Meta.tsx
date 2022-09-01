@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { FC } from 'react'
 
-import { IMeta } from '@/utils/meta/meta.interface'
+import { IMeta } from './meta.interface'
 
 const Meta: FC<IMeta> = ({ description, title }) => {
 	return (

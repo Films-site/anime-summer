@@ -6,9 +6,8 @@
   "singleQuote": true,
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
+    "^@/api/(.*)$",
     "^@/components/(.*)$",
-    "^@/screens/(.*)$",
-    "^@/ui/(.*)$",
     "^@/hooks/(.*)$",
     "^@/shared/(.*)$",
     "^@/services/(.*)$",

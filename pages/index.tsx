@@ -1,7 +1,37 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import { parseCookies } from '../app/utils/parse-cookies/ParseCookies'
+import Link from 'next/link'
+import postApi from '../app/api/posts/post.api'
 
-const Home: NextPage = () => {
+interface IHome {
+  initialRememberValue: string
+  posts: PostType[]
+}
+
+export type PostType = {
+  userId: number
+  id: number
+  title: string
+  body: string
+}
+
+
+export const getStaticProps = async () => {
+  const [error, data] = await postApi.getAllNews()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { posts: data },
+  }
+};
+
+const Home: NextPage<IHome> = ({ initialRememberValue, posts }) => {
   return (
       <>
           <Head>
@@ -11,9 +41,25 @@ const Home: NextPage = () => {
           </Head>
           <div>
               Home
+
+            <ul>
+              { posts && posts.map(({id, title}: PostType) => (
+                <li key={id}>
+                  <Link href={`/posts/${id}`}>{title}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
       </>
   )
 }
+
+// Home.getInitialProps = ({ req }) => {
+//   const cookies = parseCookies(req)
+//
+//   return {
+//     initialRememberValue: cookies.rememberMe
+//   }
+// }
 
 export default Home
