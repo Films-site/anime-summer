@@ -47,6 +47,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
+    "minio_storage"
 ]
 
 LOCAL_APPS = []
@@ -174,3 +175,19 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend'
     ],
 }
+
+# MINIO
+DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
+STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
+
+MINIO_STORAGE_ENDPOINT = env.str('MINIO_STORAGE_ENDPOINT', 'minio:9000')
+MINIO_STORAGE_ACCESS_KEY = env.str('MINIO_ROOT_USER')
+MINIO_STORAGE_SECRET_KEY = env.str('MINIO_ROOT_PASSWORD')
+MINIO_STORAGE_MEDIA_BUCKET_NAME = 'local-media'
+MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
+MINIO_STORAGE_STATIC_BUCKET_NAME = 'local-static'
+MINIO_STORAGE_AUTO_CREATE_STATIC_BUCKET = True
+MINIO_STORAGE_USE_HTTPS = False
+
+MINIO_STORAGE_MEDIA_URL = f'http://{env.str("MINIO_CONTENT_ENDPOINT", "localhost:9000")}/local-media'
+MINIO_STORAGE_STATIC_URL = f'http://{os.getenv("MINIO_CONTENT_ENDPOINT", "localhost:9000")}/local-static'
