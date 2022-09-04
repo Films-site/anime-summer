@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
 
-class Video:
+class Video(models.Model):
     ANIME_SERIES = 'anime_series'
     TYPE_VIDEO = (
         (ANIME_SERIES, 'Серия аниме'),
