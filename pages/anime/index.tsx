@@ -1,5 +1,7 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
+import { ChButton } from "cheetah-react-ui";
+import SeasonAnime from "../../app/components/Home/SeasonAnime";
 
 const Anime: NextPage = () => {
     return (
@@ -11,6 +13,7 @@ const Anime: NextPage = () => {
             </Head>
             <div>
                 Anime
+                <ChButton mode='danger' label='Тык' />
             </div>
         </>
     )
