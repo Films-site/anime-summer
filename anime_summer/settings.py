@@ -51,7 +51,9 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'users'
+    'users',
+    'anime',
+    'videos',
 ]
 
 
