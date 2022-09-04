@@ -47,14 +47,10 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
-    "imagekit",
-    "djoser",
-    "rest_framework_simplejwt",
+    "minio_storage"
 ]
 
-LOCAL_APPS = [
-    'users',
-]
+LOCAL_APPS = []
 
 
 INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + LOCAL_APPS
@@ -108,8 +104,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
-
-AUTH_USER_MODEL = 'users.User'
 
 # AUTH_PASSWORD_VALIDATORS = [
 #     {
@@ -170,19 +164,31 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # REST FRAMEWORK
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ],
 }
 
+# MINIO
+DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
+STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
 
-# DJOSER
-DJOSER = {
-    'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
-    'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL': '#/activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': False,
-    'SERIALIZERS': {},
-}
+MINIO_STORAGE_ENDPOINT = env.str('MINIO_STORAGE_ENDPOINT', 'minio:9000')
+MINIO_STORAGE_ACCESS_KEY = env.str('MINIO_ROOT_USER')
+MINIO_STORAGE_SECRET_KEY = env.str('MINIO_ROOT_PASSWORD')
+MINIO_STORAGE_MEDIA_BUCKET_NAME = 'local-media'
+MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = True
+MINIO_STORAGE_STATIC_BUCKET_NAME = 'local-static'
+MINIO_STORAGE_AUTO_CREATE_STATIC_BUCKET = True
+MINIO_STORAGE_USE_HTTPS = False
+
+MINIO_STORAGE_MEDIA_URL = f'http://{env.str("MINIO_CONTENT_ENDPOINT", "localhost:9000")}/local-media'
+MINIO_STORAGE_STATIC_URL = f'http://{os.getenv("MINIO_CONTENT_ENDPOINT", "localhost:9000")}/local-static'
