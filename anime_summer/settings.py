@@ -50,7 +50,9 @@ THIRD_PARTY_APPS = [
     "minio_storage"
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'users'
+]
 
 
 INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + LOCAL_APPS
@@ -104,6 +106,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = 'users.User'
 
 # AUTH_PASSWORD_VALIDATORS = [
 #     {
