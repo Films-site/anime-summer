@@ -46,9 +46,9 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "rest_framework",
-    "minio_storage",
-    "drf_yasg",
+    'rest_framework',
+    'minio_storage',
+    'drf_yasg',
 ]
 
 LOCAL_APPS = [
