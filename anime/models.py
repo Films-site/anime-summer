@@ -17,3 +17,7 @@ class Anime(models.Model):
         verbose_name='Превью для аниме',
     )
     videos = GenericRelation(Video)
+
+    class Meta:
+        verbose_name = 'Аниме'
+        verbose_name_plural = 'Аниме'
