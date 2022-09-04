@@ -9,7 +9,8 @@ urlpatterns = [
     # Регистрация пользователей
     path('auth/', include('djoser.urls')),
 
-    path('api/v1/users', include('users.api.urls')),
+    path('api/v1/users/', include('users.api.urls')),
+    path('api/v1/anime/', include('anime.api.urls')),
 ]
 
 if settings.DEBUG:
