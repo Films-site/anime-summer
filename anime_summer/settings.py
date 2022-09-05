@@ -64,6 +64,7 @@ LOCAL_APPS = [
     'users',
     'anime',
     'videos',
+    'comments',
 ]
 
 
