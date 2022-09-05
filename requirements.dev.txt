@@ -1,0 +1,2 @@
+pre_commit==2.20.0
+flake==5.0.4
