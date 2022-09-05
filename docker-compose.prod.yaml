@@ -1,0 +1,16 @@
+version: "3.2"
+
+services:
+  react-next-app:
+    container_name: react-next-app
+    stdin_open: true
+    build:
+      context: ./
+      dockerfile: DockerFile
+      target: production
+    ports:
+      - "3000:3000"
+    # SSR 'client' app
+    volumes:
+      - ./:/opt/app
+      - /opt/app/node_modules
