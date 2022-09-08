@@ -71,5 +71,18 @@ class CommentView(viewsets.ViewSet):
             )
         else:
             return Response(
-                {"error": 'Это не ваш комментарий'}, status=status.HTTP_400_BAD_REQUEST
+                {"error": "Это не ваш комментарий"}, status=status.HTTP_400_BAD_REQUEST
+            )
+
+    @permission_classes([IsAuthenticated])
+    def destroy(self, request, pk=None):
+        if Comment.objects.get(author=request.user.id, id=pk):
+            comment_obj = Comment.objects.get(author=request.user.id, id=pk)
+            comment_obj.delete()
+            return Response(
+                {"result": "Deleted"}, status=status.HTTP_200_OK
+            )
+        else:
+            return Response(
+                {"error": "Это не ваш комментарий"}, status=status.HTTP_400_BAD_REQUEST
             )
