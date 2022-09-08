@@ -1,10 +1,10 @@
 from rest_framework import routers
 
-from comments.api.views import Comment
+from comments.api.views import CommentView
 
 
 router = routers.DefaultRouter()
-router.register('', Comment)
+router.register('', CommentView)
 
 urlpatterns = []
 urlpatterns += router.urls
