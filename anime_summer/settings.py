@@ -58,6 +58,7 @@ THIRD_PARTY_APPS = [
     'dj_rest_auth.registration',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'django_elasticsearch_dsl',
 ]
 
 LOCAL_APPS = [
@@ -203,6 +204,15 @@ SWAGGER_SETTINGS = {
             'in': 'header',
         }
     }
+}
+
+
+# Elasticsearch
+# https://django-elasticsearch-dsl.readthedocs.io/en/latest/settings.html
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': env.str('ELASTICSEARCH_HOST', 'elasticsearch')
+    },
 }
 
 
