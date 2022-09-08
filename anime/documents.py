@@ -1,4 +1,4 @@
-from django_elasticsearch_dsl import Document, FileField, fields
+from django_elasticsearch_dsl import Document
 from django_elasticsearch_dsl.registries import registry
 
 from anime.models import Anime

@@ -1,7 +1,6 @@
 # pull official base image
 FROM python:3.10
 
-
 # set work directory
 WORKDIR /usr/src/anime_media
 ADD . /usr/src/anime_media
