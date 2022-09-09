@@ -4,9 +4,10 @@ from rest_framework.viewsets import ModelViewSet
 from anime.api.filters import AnimeFilter
 from anime.api.serializers import AnimeSerializer
 from anime.models import Anime
+from comments.api.views import CommentCreate
 
 
-class AnimeModelViewSet(ModelViewSet):
+class AnimeModelViewSet(CommentCreate, ModelViewSet):
     queryset = Anime.objects.all()
     serializer_class = AnimeSerializer
 
