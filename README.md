@@ -42,3 +42,8 @@ docker-compose up -d -f docker-compose.prod.yaml --build
 ```
 docker-compose up -d --build
 ```
+## Install dependencies in development
+```
+docker exec -it react-next-app /bin/sh
+yarn install
+```
