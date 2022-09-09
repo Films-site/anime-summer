@@ -30,4 +30,3 @@ COPY --chown=node --from=builder /app/yarn.lock /app/package.json ./
 COPY --chown=node --from=dependencies /app/node_modules ./node_modules
 USER node
 EXPOSE 3000
-CMD [ "yarn", "start" ]
