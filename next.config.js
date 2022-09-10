@@ -6,4 +6,5 @@ module.exports = {
 		loader: 'akamai',
 		path: '',
 	},
+	output: 'standalone',
 }
