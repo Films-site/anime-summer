@@ -2,37 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="259213ce-9f22-4c02-9165-6b7d16e1132d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DockerFile" beforeDir="false" afterPath="$PROJECT_DIR$/DockerFile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/anime/anime.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/anime/anime.api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/anime/anime.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/anime/anime.types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/axios-service/axiosService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/axios-service/axiosService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/axios-service/axiosService.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/axios-service/axiosService.type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/posts/post.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/posts/post.api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/posts/post.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/posts/post.types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Common/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Common/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Common/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Common/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Common/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Common/Layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Home/SeasonAnime/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Home/SeasonAnime/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/types/common.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/types/common.types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/meta/Meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/meta/Meta.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/meta/meta.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/meta/meta.interface.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/utils/parse-cookies/ParseCookies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/parse-cookies/ParseCookies.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.prod.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.husky/pre-commit" beforeDir="false" afterPath="$PROJECT_DIR$/.husky/pre-commit" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/anime/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/anime/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/hello.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/hello.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/manga/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/manga/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/music/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/music/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +72,7 @@
       <workItem from="1662802045922" duration="2112000" />
       <workItem from="1662804192424" duration="388000" />
       <workItem from="1662804598739" duration="45000" />
-      <workItem from="1662804680650" duration="6710000" />
+      <workItem from="1662804680650" duration="7094000" />
     </task>
     <servers />
   </component>

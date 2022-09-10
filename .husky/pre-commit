@@ -16,5 +16,3 @@ npm run prettier ||
   echo 'Styling failed. Run npm run format for change'
   false;
 )
-
-
