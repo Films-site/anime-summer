@@ -3,7 +3,7 @@ import { ChMessage } from 'cheetah-react-ui'
 import { AxiosResponseType } from './axiosService.type'
 
 export class AxiosService {
-	private axiosInstance!: AxiosInstance
+	axiosInstance: AxiosInstance
 
 	constructor(config?: AxiosRequestConfig) {
 		this.axiosInstance = axios.create(config)
@@ -23,10 +23,10 @@ export class AxiosService {
 
 		this.axiosInstance.interceptors.response.use(
 			(response) => {
-				if(response.data.message) {
+				if (response.data.message) {
 					ChMessage({
 						message: response.data.message || 'Error',
-						mode: 'success',
+						mode: 'success'
 					})
 				}
 				return response
@@ -41,18 +41,17 @@ export class AxiosService {
 					case 422:
 						if (process.env.NODE_ENV !== 'production') {
 							ChMessage({
-								message:
-									response.code.message || 'Неверный логин или пароль!',
-								mode: 'error',
+								message: response.code.message || 'Неверный логин или пароль!',
+								mode: 'error'
 							})
 						}
 						break
 
 					default:
-						if(response.code.message) {
+						if (response.code.message) {
 							ChMessage({
 								message: response.code.message,
-								mode: 'error',
+								mode: 'error'
 							})
 						}
 						break
@@ -62,7 +61,9 @@ export class AxiosService {
 		)
 	}
 
-	protected async axiosCall<T = any>(config: AxiosRequestConfig): Promise<AxiosResponseType<T>> {
+	async axiosCall<T = any>(
+		config: AxiosRequestConfig
+	): Promise<AxiosResponseType<T>> {
 		try {
 			const { data } = await this.axiosInstance.request<T>(config)
 			return [null, data]
@@ -70,5 +71,4 @@ export class AxiosService {
 			return [error]
 		}
 	}
-
 }

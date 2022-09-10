@@ -6,14 +6,13 @@ class PostApi extends AxiosService {
 		super(config)
 	}
 
-	public getAllNews() {
+	getAllNews() {
 		return this.axiosCall<string[]>({
 			method: 'get',
 			url: 'https://jsonplaceholder.typicode.com/posts'
 		})
 	}
 }
-
 
 export default new PostApi({
 	baseURL: '',

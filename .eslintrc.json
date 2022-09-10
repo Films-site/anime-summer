@@ -1,37 +1,57 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "amd": true,
+    "node": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "prettier",
-    "plugin:prettier/recommended"
-  ],
-  "parser": "@babel/eslint-parser",
-  "parserOptions": {
-    "requireConfigFile": false,
-    "babelOptions": {
-      "babelrc": false,
-      "configFile": false,
-      "presets": ["@babel/preset-env, @babel/preset-react"]
-    }
-  },
-  "plugins": [
-    "react",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
   "rules": {
-    "react/prop-types": 0,
-    "prettier/prettier": "error",
-    "arrow-body-style": "off",
-    "prefer-arrow-callback": "off",
     "react/react-in-jsx-scope": "off",
-    "unused-imports/no-unused-imports": "warn",
-    "unused-imports/no-unused-vars": [
-      "warn",
-      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-    ]
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "quotes": ["error", "single"],
+    "semi": [2, "never"],
+    "spaced-comment": "error",
+    "no-duplicate-imports": "error",
+    "comma-dangle": ["warn", {
+      "arrays": "never",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never"
+    }],
+    "class-methods-use-this": "error",
+    "@typescript-eslint/comma-dangle": ["warn", {
+      "arrays": "never",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "never",
+      "functions": "never"
+    }]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }

@@ -6,7 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix",
+    "prettier": "npx prettier src --check",
+    "check-types": "tsc --pretty --noEmit",
+    "prettier:fix": "npm run prettier -- --write",
+    "format": "prettier --write app/**/*.{js,jsx,ts,tsx,css,md,json} pages/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
+    "export": "next build && next export",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -27,9 +35,22 @@
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
     "babel-plugin-styled-components": "^2.0.7",
     "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
     "prettier": "2.7.1",
-    "typescript": "^4.7.4"
-  }
+    "typescript": "^4.8.3"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    ".next/*",
+    "_static/*",
+    "out"
+  ]
 }

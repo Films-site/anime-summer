@@ -1,4 +1,4 @@
 export interface IMeta {
-	title?: string
-	description?: string
+	title?: string;
+	description?: string;
 }

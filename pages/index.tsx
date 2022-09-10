@@ -5,14 +5,14 @@ import NewAnime from '../app/components/Home/NewAnime'
 import { NextPage } from 'next'
 
 interface IHome {
-	initialRememberValue: string
-	posts: PostType[]
+	initialRememberValue: string;
+	posts: PostType[];
 }
 
 export type PostType = {
-	userId: number
-	id: number
-	title: string
+	userId: number,
+	id: number,
+	title: string,
 	body: string
 }
 
@@ -30,7 +30,8 @@ export const getStaticProps = async () => {
 	}
 }
 
-const Home: NextPage<IHome> = ({ initialRememberValue, posts }) => {
+// const Home: NextPage<IHome> = ({ initialRememberValue, posts }) => {
+const Home: NextPage<IHome> = () => {
 	return (
 		<>
 			<Head>

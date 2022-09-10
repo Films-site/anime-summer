@@ -1,3 +1,3 @@
 export type FileType = {
-    name: string
+	name: string
 }

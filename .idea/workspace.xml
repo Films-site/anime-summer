@@ -2,12 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="259213ce-9f22-4c02-9165-6b7d16e1132d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.eslintignore" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DockerFile" beforeDir="false" afterPath="$PROJECT_DIR$/DockerFile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/anime/anime.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/anime/anime.api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/anime/anime.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/anime/anime.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/axios-service/axiosService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/axios-service/axiosService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/axios-service/axiosService.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/axios-service/axiosService.type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/posts/post.api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/posts/post.api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/posts/post.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/posts/post.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Common/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Common/Footer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Common/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Common/Header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Common/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Common/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Home/SeasonAnime/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Home/SeasonAnime/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/types/common.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/types/common.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/meta/Meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/meta/Meta.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/meta/meta.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/meta/meta.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/utils/parse-cookies/ParseCookies.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/utils/parse-cookies/ParseCookies.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.prod.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.prod.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/anime/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/anime/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/hello.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/hello.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/manga/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/manga/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/music/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/music/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,34 +45,37 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2EIZOFkHVnnc0ncqf62Kyrt0ysB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/web/practice/practice/anime/client&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;D:\\web\\practice\\practice\\anime\\client&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\web\\practice\\practice\\anime\\client\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/web/practice/practice/anime/client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "D:\\web\\practice\\practice\\anime\\client",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "D:\\web\\practice\\practice\\anime\\client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\web\practice\practice\anime\client" />
@@ -69,7 +96,11 @@
       <workItem from="1662301660214" duration="117000" />
       <workItem from="1662301791179" duration="1777000" />
       <workItem from="1662394221130" duration="5723000" />
-      <workItem from="1662731755209" duration="10729000" />
+      <workItem from="1662731755209" duration="11264000" />
+      <workItem from="1662802045922" duration="2112000" />
+      <workItem from="1662804192424" duration="388000" />
+      <workItem from="1662804598739" duration="45000" />
+      <workItem from="1662804680650" duration="6710000" />
     </task>
     <servers />
   </component>

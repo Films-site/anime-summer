@@ -9,18 +9,18 @@ const Meta: FC<IMeta> = ({ description, title }) => {
 			<Head>
 				<title>{title}</title>
 				<link
-					rel="shortcut icon"
-					href="/public/favicon.ico"
-					type="image/x-icon"
+					rel='shortcut icon'
+					href='/public/favicon.ico'
+					type='image/x-icon'
 				/>
 				{description ? (
 					<meta
-						itemProp="description"
-						name="description"
+						itemProp='description'
+						name='description'
 						content={description}
 					/>
 				) : (
-					<meta name="robots" content="noindex, nofollow" />
+					<meta name='robots' content='noindex, nofollow' />
 				)}
 			</Head>
 		</>

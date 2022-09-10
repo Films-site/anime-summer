@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo 'Styling, testing and buildings projects before commits'
+
+# Check tsconfig standards
+npm run check-types ||
+(
+  echo 'Failed Type Check. Type all and try again.'
+  false;
+)
+
+# Check prettier standards
+npm run prettier ||
+(
+  echo 'Styling failed. Run npm run format for change'
+  false;
+)
+
+

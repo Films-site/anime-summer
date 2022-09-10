@@ -13,4 +13,4 @@ services:
     # SSR 'client' app
     volumes:
       - .:/app
-    command: yarn build && yarn start
+    command: yarn export
