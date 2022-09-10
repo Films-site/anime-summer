@@ -1,47 +1,43 @@
-from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.contrib.contenttypes.models import ContentType
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.decorators import action
 
-from anime.models import Anime
 from comments.models import Comment
 from comments.api.serializers import CommnetSerializer
 
 
-class CommentCreate:
+class CommentView:
 
-    def create(self, request, *args, **kwargs):
+    @action(detail=False, methods=['post'], url_path='add-comment')
+    def create_comment(self, request, *args, **kwargs):
         author = request.user
         content_id = request.data.get('content_id')
-        anime = ContentType.objects.get_for_model(self.queryset.model)
-        text = request.data.get('text_comment')
-        if request.data.get('parent'):
-            parent = request.data.get('parent')
+        model_for_comment = ContentType.objects.get_for_model(self.queryset.model)
+        parent = request.data.get('parent')
+        if parent:
             parent_comment = Comment.objects.get(id=int(parent))
-            Comment.objects.create(
-                parent=parent_comment, text_comment=text, author=author,
-                content_type=anime, object_id=content_id,
+            comment_created = Comment.objects.create(
+                parent=parent_comment, text_comment=request.data.get('text_comment'),
+                author=author, content_type=model_for_comment, object_id=content_id,
             )
         else:
-            Comment.objects.create(
-                text_comment=text, author=author,
-                content_type=anime, object_id=content_id,
+            comment_created = Comment.objects.create(
+                text_comment=request.data.get('text_comment'), author=author,
+                content_type=model_for_comment, object_id=content_id,
             )
-        return Response({
-            "Comment created": "ok"
-        }, status=status.HTTP_201_CREATED)
+        return Response(
+            CommnetSerializer(
+                comment_created, context={"request": request}
+            ).data, status=status.HTTP_200_OK
+        )
 
-
-class CommentView(viewsets.ModelViewSet):
-    queryset = Comment.objects.all()
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
-    def list(self, request, *args, **kwargs):
-        anime_id = request.data.get('anime_id')
-        if Anime.objects.get(id=anime_id):
-            anime_obj = Anime.objects.get(id=anime_id)
-            comments = anime_obj.comments.all().filter(level=0)
+    @action(detail=True, methods=['get'], url_path='list-comment')
+    def list_comment(self, request, pk=None, *args, **kwargs):
+        content_type_model = ContentType.objects.get_for_model(self.queryset.model, for_concrete_model=False)
+        model = content_type_model.get_object_for_this_type(id=pk)
+        if model:
+            comments = model.comments.all().filter(level=0)
             return Response(
                 CommnetSerializer(
                     comments, many=True, context={"request": request}
@@ -52,11 +48,13 @@ class CommentView(viewsets.ModelViewSet):
                 "error": "error"
             }, status=status.HTTP_400_BAD_REQUEST)
 
-    def update(self, request, pk=None):
+    @action(detail=True, methods=['put'], url_path='update-comment')
+    def update_comment(self, request, pk=None):
         if not Comment.objects.filter(author=request.user.id, id=pk).exists():
             return Response(
-                {"error": "Это не ваш комментарий"}, status=status.HTTP_400_BAD_REQUEST
+                {"error": "This is not your comment"}, status=status.HTTP_400_BAD_REQUEST
             )
+
         comment_obj = Comment.objects.get(author=request.user.id, id=pk)
         comment_obj.text_comment = request.data.get('new_text_comment')
         comment_obj.save()
@@ -66,7 +64,8 @@ class CommentView(viewsets.ModelViewSet):
             ).data, status=status.HTTP_200_OK
         )
 
-    def destroy(self, request, pk=None):
+    @action(detail=True, methods=['delete'], url_path='delete-comment')
+    def destroy_comment(self, request, pk=None):
         if Comment.objects.get(author=request.user.id, id=pk):
             comment_obj = Comment.objects.get(author=request.user.id, id=pk)
             comment_obj.delete()
@@ -75,5 +74,5 @@ class CommentView(viewsets.ModelViewSet):
             )
         else:
             return Response(
-                {"error": "Это не ваш комментарий"}, status=status.HTTP_400_BAD_REQUEST
+                {"error": "This is not your comment"}, status=status.HTTP_400_BAD_REQUEST
             )
