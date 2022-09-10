@@ -13,4 +13,5 @@ services:
     # SSR 'client' app
     volumes:
       - .:/app
+      - /app/node_modules
     command: yarn export
