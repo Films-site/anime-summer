@@ -58,6 +58,7 @@ THIRD_PARTY_APPS = [
     'dj_rest_auth.registration',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'mptt',
     'django_elasticsearch_dsl',
 ]
 
