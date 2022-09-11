@@ -9,7 +9,7 @@ from comments.api.serializers import CommnetSerializer
 
 class CommentView:
 
-    @action(detail=False, methods=['post'], url_path='add-comment')
+    @action(detail=False, methods=['post'], url_path='comments')
     def create_comment(self, request, *args, **kwargs):
         author = request.user
         content_id = request.data.get('content_id')
@@ -32,7 +32,7 @@ class CommentView:
             ).data, status=status.HTTP_200_OK
         )
 
-    @action(detail=True, methods=['get'], url_path='list-comment')
+    @action(detail=True, methods=['get'], url_path='comments')
     def list_comment(self, request, pk=None, *args, **kwargs):
         content_type_model = ContentType.objects.get_for_model(self.queryset.model, for_concrete_model=False)
         model = content_type_model.get_object_for_this_type(id=pk)
@@ -48,7 +48,7 @@ class CommentView:
                 "error": "error"
             }, status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=True, methods=['put'], url_path='update-comment')
+    @action(detail=True, methods=['put'], url_path='comments')
     def update_comment(self, request, pk=None):
         if not Comment.objects.filter(author=request.user.id, id=pk).exists():
             return Response(
@@ -64,7 +64,7 @@ class CommentView:
             ).data, status=status.HTTP_200_OK
         )
 
-    @action(detail=True, methods=['delete'], url_path='delete-comment')
+    @action(detail=True, methods=['delete'], url_path='comments')
     def destroy_comment(self, request, pk=None):
         if Comment.objects.get(author=request.user.id, id=pk):
             comment_obj = Comment.objects.get(author=request.user.id, id=pk)
