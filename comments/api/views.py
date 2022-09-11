@@ -7,7 +7,7 @@ from comments.models import Comment
 from comments.api.serializers import CommnetSerializer
 
 
-class CommentView:
+class CommentMixin:
 
     @action(detail=False, methods=['post'], url_path='comments')
     def create_comment(self, request, *args, **kwargs):
@@ -48,7 +48,7 @@ class CommentView:
                 "error": "error"
             }, status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=True, methods=['put'], url_path='comments')
+    @action(detail=True, methods=['put', 'patch'], url_path='comments')
     def update_comment(self, request, pk=None):
         if not Comment.objects.filter(author=request.user.id, id=pk).exists():
             return Response(
