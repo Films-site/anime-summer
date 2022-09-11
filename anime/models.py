@@ -3,6 +3,7 @@ from django.db import models
 from imagekit.models import ProcessedImageField
 from pilkit.processors import ResizeToFill
 
+from plans.models import PlanItem
 from videos.models import Video
 
 
@@ -17,6 +18,7 @@ class Anime(models.Model):
         verbose_name='Превью для аниме',
     )
     videos = GenericRelation(Video)
+    plan_items = GenericRelation(PlanItem)
 
     class Meta:
         verbose_name = 'Аниме'

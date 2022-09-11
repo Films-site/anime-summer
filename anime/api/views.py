@@ -6,10 +6,11 @@ from anime.api.filters import AnimeFilter
 from anime.api.serializers import AnimeListSerializer
 from anime.documents import AnimeDocument
 from anime.models import Anime
+from plans.api.views import PlanMixin
 from search.api.views import PaginatedElasticSearchAPIView
 
 
-class AnimeModelViewSet(PaginatedElasticSearchAPIView, ModelViewSet):
+class AnimeModelViewSet(PaginatedElasticSearchAPIView, PlanMixin, ModelViewSet):
     queryset = Anime.objects.all()
 
     document_class = AnimeDocument
