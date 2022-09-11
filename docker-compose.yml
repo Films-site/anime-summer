@@ -20,6 +20,7 @@ services:
     depends_on:
       - db
       - minio
+      - elasticsearch
 
   minio:
     image: minio/minio:latest
@@ -33,7 +34,28 @@ services:
       - minio_data:/data
       - minio_config:/root/.minio
 
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch:7.9.2
+    environment:
+      - "discovery.type=single-node"
+    ports:
+      - 9200:9200
+    volumes:
+      - elastic_volume:/usr/share/elasticsearch/data
+
+  kibana:
+    container_name: kibana
+    image: kibana:7.9.2
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5601:5601
+    links:
+      - elasticsearch
+
 volumes:
   postgres_data:
   minio_data:
   minio_config:
+  elastic_volume:
