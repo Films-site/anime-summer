@@ -10,9 +10,9 @@ from comments.models import Comment
 class Anime(models.Model):
 
     STATUS_ANIME = [
-        ('Онгоинг', 'Выходит последний сезон аниме'),
-        ('Вышел', 'Аниме вышло.'),
-        ('Анонс', 'Аниме анонсированно'),
+        ('Ongion', 'Выходит последний сезон аниме'),
+        ('Came out', 'Аниме вышло.'),
+        ('Announcement', 'Аниме анонсированно'),
     ]
 
     title = models.TextField('Название')
@@ -31,65 +31,74 @@ class Anime(models.Model):
         'TypeAnime', verbose_name='Тип',
         on_delete=models.PROTECT,
         related_name='type_anime',
+        blank=True,
+        null=True
     )
     genres_anime = models.ManyToManyField(
         'Genre', verbose_name='Жанр',
-        on_delete=models.PROTECT,
         related_name='genres_anime',
     )
     next_episode = models.CharField(
         verbose_name='Следующий эпизод',
         max_length=255,
+        null=True,
     )
     episode_anime = models.CharField(
         verbose_name='Количество эпизодов',
         max_length=255,
+        null=True,
     )
     status_anime = models.CharField(
         verbose_name='Статус аниме',
         choices=STATUS_ANIME,
-        default='Анонс',
+        default='Announcement',
         max_length=255,
     )
     original_source = models.CharField(
         verbose_name='Первоисточник',
         max_length=255,
+        null=True,
     )
     season_anime = models.CharField(
         verbose_name='Сезон',
         max_length=255,
+        null=True,
     )
     release_anime = models.CharField(
         verbose_name='Выпуск',
         max_length=255,
+        null=True,
     )
     atelier_anime = models.CharField(
         verbose_name='Студия',
         max_length=255,
+        null=True,
+        blank=True,
     )
     duration_series = models.CharField(
         verbose_name='Длительность',
         max_length=255,
+        null=True,
     )
     rating_mpaa = models.ForeignKey(
         'RatingMPAA',
         verbose_name='Рейтинг-MPAA',
         related_name='rating_mpaa',
+        on_delete=models.PROTECT,
         null=True,
         blank=True,
     )
     age_rating = models.CharField(
         verbose_name='Возрастной рейтинг',
         max_length=15,
+        default="0+"
     )
     voiceovers_amine = models.ManyToManyField(
         'Voiceover', verbose_name='Озвучка',
-        on_delete=models.PROTECT,
         related_name='voiceovers_anime',
     )
-    main_heroes = models.ManyToMany(
+    main_heroes = models.ManyToManyField(
         'Hero', verbose_name='Герои',
-        on_delete=models.PROTECT,
         related_name='main_heroes',
     )
 
