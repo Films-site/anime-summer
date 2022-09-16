@@ -101,6 +101,12 @@ class Anime(models.Model):
         'Hero', verbose_name='Герои',
         related_name='main_heroes',
     )
+    average_rating = models.DecimalField(
+        verbose_name='Средняя оценка',
+        max_digits=10,
+        decimal_places=1,
+        default=0.0,
+    )
 
     def __str__(self):
         return str(self.title)
