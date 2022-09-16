@@ -2,11 +2,12 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.auth import get_user_model
 
 
 class Rating(models.Model):
     appraiser = models.ForeignKey(
-        'users.User', on_delete=models.CASCADE,
+        get_user_model(), on_delete=models.CASCADE,
         verbose_name='Оценивший пользователь',
         related_name='appraiser_user',
     )

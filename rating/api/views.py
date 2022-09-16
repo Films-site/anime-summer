@@ -2,9 +2,10 @@ from django.contrib.contenttypes.models import ContentType
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import action
-from django.db.models import Avg
 
 from rating.models import Rating
+from rating.api.serializers import RatingSerializer
+from rating.api.rating_services.rating_worker import RatingWorker
 
 
 class RatingMixin:
@@ -14,12 +15,12 @@ class RatingMixin:
         appraiser = request.user
         content_id = request.data.get('content_id')
         model_for_rating = ContentType.objects.get_for_model(self.queryset.model)
-        if len(Rating.objects.filter(appraiser=appraiser, object_id=content_id, content_type=model_for_rating)) >= 1:
+        if Rating.objects.filter(appraiser=appraiser, object_id=content_id, content_type=model_for_rating).count() >= 1:
             return Response(
-                {"ERROR": "have you done this before"}, status=status.HTTP_400_BAD_REQUEST
+                {"error": "have you done this before."}, status=status.HTTP_400_BAD_REQUEST
             )
 
-        Rating.objects.create(
+        ratung_created = Rating.objects.create(
             appraiser=appraiser, estimation=request.data.get('estimation'),
             content_type=model_for_rating, object_id=content_id,
         )
@@ -27,15 +28,11 @@ class RatingMixin:
         model = model_for_rating.get_object_for_this_type(
             id=request.data.get('content_id')
         )
-        avg_rating = self.сalculation_average_score(ratings_model)
+        avg_rating = RatingWorker.сalculation_average_score(ratings_model)
         model.average_rating = round(avg_rating["estimation__avg"], 1)
         model.save()
         return Response(
-            {"Status": "OK"}, status=status.HTTP_201_CREATED
+            RatingSerializer(
+                ratung_created, context={"request": request}
+            ).data, status=status.HTTP_200_OK
         )
-
-    def сalculation_average_score(self, ratings_model):
-        average_score = ratings_model.values_list(
-            'estimation', flat=True
-        ).aggregate(Avg('estimation'))
-        return average_score

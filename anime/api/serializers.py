@@ -21,4 +21,7 @@ class AnimeDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Anime
-        fields = ['id', 'title', 'description', 'preview', 'videos']
+        fields = [
+            'id', 'title', 'description', 'preview', 'videos',
+            'average_rating',
+        ]
