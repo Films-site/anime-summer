@@ -1,7 +1,7 @@
 from django.db.models import Avg
 
 
-class RatingWorker:
+class RatingCalculation:
 
     @staticmethod
     def сalculation_average_score(ratings_model):
