@@ -5,4 +5,4 @@ from rating.models import Rating
 
 @admin.register(Rating)
 class RatingModelAdmin(admin.ModelAdmin):
-    ...
+    pass

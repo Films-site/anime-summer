@@ -26,13 +26,10 @@ class Anime(models.Model):
     )
     videos = GenericRelation(Video)
     comments = GenericRelation(Comment, related_name='anime_comments')
-
     type_anime = models.ForeignKey(
         'TypeAnime', verbose_name='Тип',
         on_delete=models.PROTECT,
         related_name='type_anime',
-        blank=True,
-        null=True
     )
     genres_anime = models.ManyToManyField(
         'Genre', verbose_name='Жанр',
@@ -42,11 +39,11 @@ class Anime(models.Model):
         verbose_name='Следующий эпизод',
         max_length=255,
         null=True,
+        blank=True,
     )
     episode_anime = models.CharField(
         verbose_name='Количество эпизодов',
         max_length=255,
-        null=True,
     )
     status_anime = models.CharField(
         verbose_name='Статус аниме',
@@ -58,40 +55,38 @@ class Anime(models.Model):
         verbose_name='Первоисточник',
         max_length=255,
         null=True,
+        blank=True,
     )
     season_anime = models.CharField(
         verbose_name='Сезон',
         max_length=255,
-        null=True,
     )
     release_anime = models.CharField(
         verbose_name='Выпуск',
         max_length=255,
-        null=True,
     )
     atelier_anime = models.CharField(
         verbose_name='Студия',
         max_length=255,
-        null=True,
-        blank=True,
     )
     duration_series = models.CharField(
         verbose_name='Длительность',
         max_length=255,
         null=True,
+        blank=True,
     )
     rating_mpaa = models.ForeignKey(
         'RatingMPAA',
         verbose_name='Рейтинг-MPAA',
-        related_name='rating_mpaa',
         on_delete=models.PROTECT,
         null=True,
         blank=True,
+        related_name='rating_mpaa',
     )
     age_rating = models.CharField(
         verbose_name='Возрастной рейтинг',
         max_length=15,
-        default="0+"
+        default='0+',
     )
     voiceovers_amine = models.ManyToManyField(
         'Voiceover', verbose_name='Озвучка',
@@ -100,6 +95,7 @@ class Anime(models.Model):
     main_heroes = models.ManyToManyField(
         'Hero', verbose_name='Герои',
         related_name='main_heroes',
+        blank=True,
     )
     average_rating = models.DecimalField(
         verbose_name='Средняя оценка',
@@ -109,11 +105,11 @@ class Anime(models.Model):
     )
 
     def __str__(self):
-        return str(self.title)
+        return str(self.id)
 
     class Meta:
-        verbose_name = 'Аниме'
-        verbose_name_plural = 'Аниме'
+        verbose_name = 'Anime'
+        verbose_name_plural = 'Anime'
 
 
 class TypeAnime(models.Model):
@@ -123,7 +119,7 @@ class TypeAnime(models.Model):
     )
 
     def __str__(self):
-        return self.type_content
+        return str(self.type_content)
 
     class Meta:
         verbose_name = 'Type anime'
@@ -137,7 +133,7 @@ class Genre(models.Model):
     )
 
     def __str__(self):
-        return self.genre
+        return str(self.genre)
 
     class Meta:
         verbose_name = 'Genre'
@@ -151,7 +147,7 @@ class RatingMPAA(models.Model):
     )
 
     def __str__(self):
-        return self.rating
+        return str(self.rating)
 
     class Meta:
         verbose_name = 'RatingMPAA'
@@ -165,7 +161,7 @@ class Voiceover(models.Model):
     )
 
     def __str__(self):
-        return self.voiceover
+        return str(self.voiceover)
 
     class Meta:
         verbose_name = 'Voiceover'
@@ -179,7 +175,7 @@ class Hero(models.Model):
     )
 
     def __str__(self):
-        return self.hero
+        return str(self.hero)
 
     class Meta:
         verbose_name = 'Hero'

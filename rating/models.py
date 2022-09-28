@@ -21,8 +21,8 @@ class Rating(models.Model):
     content_object = GenericForeignKey('content_type', 'object_id')
 
     def __str__(self):
-        return f'{str(self.appraiser)} {str(self.object_id)}'
+        return str(f'{self.appraiser} {self.object_id} {self.id}')
 
     class Meta:
-        verbose_name = 'Оценка'
-        verbose_name_plural = 'Оценки'
+        verbose_name = 'Rating'
+        verbose_name_plural = 'Ratings'

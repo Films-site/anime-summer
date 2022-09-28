@@ -13,7 +13,7 @@ class AnimeListSerializer(serializers.ModelSerializer):
 
     @staticmethod
     def get_preview(obj):
-        return obj.preview
+        return obj.preview.url
 
 
 class AnimeDetailSerializer(serializers.ModelSerializer):
@@ -23,5 +23,4 @@ class AnimeDetailSerializer(serializers.ModelSerializer):
         model = Anime
         fields = [
             'id', 'title', 'description', 'preview', 'videos',
-            'average_rating',
         ]

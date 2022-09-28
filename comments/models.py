@@ -21,13 +21,14 @@ class Comment(MPTTModel):
     created_comment = models.DateTimeField(
         'Дата написания', auto_now_add=True, blank=True
     )
-    deleted_comment = models.DateTimeField(
-        'Дата удаления', blank=True, null=True
-    )
     updated_comment = models.DateTimeField('Дата обновления', auto_now=True)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey('content_type', 'object_id')
 
     def __str__(self):
-        return f'{str(self.author)} {str(self.id)}'
+        return str(f"{self.author} {self.id}")
+
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
