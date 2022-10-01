@@ -21,7 +21,7 @@ class Rating(models.Model):
     content_object = GenericForeignKey('content_type', 'object_id')
 
     def __str__(self):
-        return str(f'{self.appraiser} {self.object_id} {self.id}')
+        return f'{self.appraiser} {self.id}'
 
     class Meta:
         verbose_name = 'Rating'

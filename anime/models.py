@@ -119,7 +119,7 @@ class TypeAnime(models.Model):
     )
 
     def __str__(self):
-        return str(self.type_content)
+        return self.type_content
 
     class Meta:
         verbose_name = 'Type anime'
@@ -133,7 +133,7 @@ class Genre(models.Model):
     )
 
     def __str__(self):
-        return str(self.genre)
+        return self.genre
 
     class Meta:
         verbose_name = 'Genre'
@@ -147,7 +147,7 @@ class RatingMPAA(models.Model):
     )
 
     def __str__(self):
-        return str(self.rating)
+        return self.rating
 
     class Meta:
         verbose_name = 'RatingMPAA'
@@ -161,7 +161,7 @@ class Voiceover(models.Model):
     )
 
     def __str__(self):
-        return str(self.voiceover)
+        return self.voiceover
 
     class Meta:
         verbose_name = 'Voiceover'
@@ -175,7 +175,7 @@ class Hero(models.Model):
     )
 
     def __str__(self):
-        return str(self.hero)
+        return self.hero
 
     class Meta:
         verbose_name = 'Hero'
