@@ -61,7 +61,7 @@ class RatingMixin:
         model.save()
         return Response(
             RatingSerializer(
-                rating_user, context={"request": request}
+                rating_user
             ).data, status=status.HTTP_201_CREATED
         )
 
