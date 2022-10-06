@@ -29,7 +29,7 @@ class PlanMixin:
         plan_item = item.plan_items.filter(id=item.id)
 
         if not plan_item.exists():
-            plan_item = PlanItem.objects.create(content_type=item.model, object_id=item.id)
+            plan_item = PlanItem.objects.create(content_type=content_type_model, object_id=item.id)
         else:
             plan_item = plan_item[0]
 
@@ -38,6 +38,21 @@ class PlanMixin:
 
         user_plan.items.add(plan_item)
         return Response(PlanSerializer(user_plan).data)
+
+    @plans.mapping.delete
+    def delete_plan_item(self, request, *args, **kwargs):
+        user_plan = Plan.objects.get(user=request.user)
+        item_plan_id = request.data.get('content_id')
+        content_type_model = ContentType.objects.get_for_model(
+            self.queryset.model, for_concrete_model=False
+        )
+        user_item_plan = PlanItem.objects.get(
+            content_type=content_type_model, id=item_plan_id
+        )
+        user_item_plan.delete()
+        if not user_plan.items.all().exists():
+            user_plan.delete()
+        return Response({'deleted': 'ok'})
 
     @abc.abstractmethod
     def get_queryset(self):
