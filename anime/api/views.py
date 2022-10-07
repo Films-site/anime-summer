@@ -8,9 +8,11 @@ from anime.documents import AnimeDocument
 from anime.models import Anime
 from plans.api.views import PlanMixin
 from search.api.views import PaginatedElasticSearchAPIView
+from comments.api.views import CommentMixin
+from rating.api.views import RatingMixin
 
 
-class AnimeModelViewSet(PaginatedElasticSearchAPIView, PlanMixin, ModelViewSet):
+class AnimeModelViewSet(PaginatedElasticSearchAPIView, CommentMixin, RatingMixin, PlanMixin, ModelViewSet):
     queryset = Anime.objects.all()
 
     document_class = AnimeDocument

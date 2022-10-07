@@ -28,6 +28,8 @@ urlpatterns = [
 
     path('api/v1/users/', include('users.api.urls')),
     path('api/v1/anime/', include('anime.api.urls')),
+    path('api/v1/comments/', include('comments.api.urls')),
+    path('api/v1/rating/', include('rating.api.urls')),
 ]
 
 if settings.DEBUG:
