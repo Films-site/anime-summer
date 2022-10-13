@@ -7,10 +7,12 @@ from anime.api.serializers import AnimeListSerializer
 from anime.documents import AnimeDocument
 from anime.models import Anime
 from plans.api.views import PlanMixin
+from comments.api.views import CommentMixin
+from rating.api.views import RatingMixin
 from search.api.views import PaginatedElasticSearchAPIView
 
 
-class AnimeModelViewSet(PaginatedElasticSearchAPIView, PlanMixin, ModelViewSet):
+class AnimeModelViewSet(PaginatedElasticSearchAPIView, CommentMixin, RatingMixin, PlanMixin, ModelViewSet):
     queryset = Anime.objects.all()
 
     document_class = AnimeDocument
