@@ -195,6 +195,22 @@ REST_FRAMEWORK = {
     ),
 }
 
+# DJOSER settings
+DJOSER = {
+    "PERMISSIONS": {
+        'activation': ['rest_framework.permissions.AllowAny'],
+        'password_reset': ['rest_framework.permissions.IsAuthenticated'],
+        'password_reset_confirm': ['rest_framework.permissions.IsAuthenticated'],
+        'set_password': ['djoser.permissions.CurrentUserOrAdmin'],
+        'set_username': ['rest_framework.permissions.IsAuthenticated'],
+        'user_create': ['rest_framework.permissions.AllowAny'],
+        'user_delete': ['djoser.permissions.CurrentUserOrAdmin'],
+        'user': ['djoser.permissions.CurrentUserOrAdminOrReadOnly'],
+        'user_list': ['djoser.permissions.CurrentUserOrAdminOrReadOnly'],
+        'token_create': ['rest_framework.permissions.AllowAny'],
+        'token_destroy': ['rest_framework.permissions.IsAuthenticated'],
+    }
+}
 
 # SWAGGER
 SWAGGER_SETTINGS = {
