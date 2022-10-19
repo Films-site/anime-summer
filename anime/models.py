@@ -3,6 +3,7 @@ from django.db import models
 from imagekit.models import ProcessedImageField
 from pilkit.processors import ResizeToFill
 
+from plans.models import PlanItem
 from videos.models import Video
 from comments.models import Comment
 
@@ -25,6 +26,7 @@ class Anime(models.Model):
         verbose_name='Превью для аниме',
     )
     videos = GenericRelation(Video)
+    plan_items = GenericRelation(PlanItem)
     comments = GenericRelation(Comment, related_name='anime_comments')
     type_anime = models.ForeignKey(
         'TypeAnime', verbose_name='Тип',
