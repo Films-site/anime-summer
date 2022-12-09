@@ -1,0 +1,22 @@
+@import 'resources/variables';
+@import 'resources/mixins';
+
+.container {
+  max-width: 1320px;
+  padding: 0 15px;
+  margin-inline: auto;
+}
+
+// Colors
+@each $_class-name, $_color in (('primary', $color--primary)) {
+  // @sample
+  // .bg-primary
+  // .color-primary
+  @include color($_class-name, $_color);
+}
+
+// Margins | Paddings
+@include sizes-classes;
+
+// Global classes
+@include project-classes;
