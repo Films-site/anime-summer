@@ -10,6 +10,10 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.17",
+    "@mui/styled-engine-sc": "^5.10.16",
     "cypress": "^12.0.2",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
@@ -18,6 +22,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-test-renderer": "^18.2.0",
+    "styled-components": "^5.3.6",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1"
   },
