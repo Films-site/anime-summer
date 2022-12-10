@@ -1,13 +1,14 @@
 import type { AppProps } from 'next/app'
 
-import '../app/styles/general.scss'
-import DefaultLayout from '../app/layouts/DefaultLayout/DefaultLayout'
+import AnimeLayout from '@/app/layouts/AnimeLayout/AnimeLayout'
+
+import '@/app/styles/main.scss'
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
-    <DefaultLayout>
+    <AnimeLayout>
       <Component {...pageProps} />
-    </DefaultLayout>
+    </AnimeLayout>
   )
 }
 

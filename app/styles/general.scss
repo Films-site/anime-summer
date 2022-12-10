@@ -2,9 +2,14 @@
 @import 'resources/mixins';
 
 .container {
-  max-width: 1320px;
-  padding: 0 15px;
-  margin-inline: auto;
+  max-width: 1820px;
+  position: relative;
+  margin-left: auto;
+  padding-left: 20px;
+  
+  @media screen and (min-width: (2400px)) {
+    max-width: 80%
+  }
 }
 
 // Colors
