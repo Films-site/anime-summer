@@ -18,7 +18,11 @@
     "paths": {
       "@/app/*": ["app/*"],
       "@/pages/*": ["pages/*"],
-    }
+    },
+    "types": [
+      "node",
+      "webpack-env" // here
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
