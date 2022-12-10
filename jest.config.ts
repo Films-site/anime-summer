@@ -17,10 +17,10 @@ const customJestConfig = {
   moduleDirectories: ['node_modules', '/'],
   testEnvironment: 'jest-environment-jsdom',
   "modulePaths": [
-    "components/"
+    "app/components/"
   ],
   moduleNameMapper: {
-    "^@/components(.*)$": "<rootDir>/components$1",
+    "^@/app/components(.*)$": "<rootDir>/app/components$1",
   }
 }
 
