@@ -1,46 +1,21 @@
 import type { AppProps } from 'next/app'
 
 import AnimeLayout from '@/app/layouts/AnimeLayout/AnimeLayout'
-import { requireSvg } from '@/app/utils/loadSvg'
+import { requireSvg } from '@/app/utils/LoadSvg'
 
 import '@/app/styles/main.scss'
-import { useMemo, useState } from 'react'
+import { ReactElement, useMemo, useState } from 'react'
 import {
   ThemeProvider,
   createTheme,
 } from '@mui/material/styles'
-import { CssBaseline, PaletteMode } from '@mui/material'
-import { ThemeOptions } from '@mui/material/styles/createTheme'
-import { ColorConstants } from '@/app/constants/color.constant'
+import { CssBaseline } from '@mui/material'
 import { ThemeContext } from '@/app/contexts/ThemeContext'
+import { getColorsByTheme } from '@/app/utils/GetColorsByTheme'
 
 requireSvg()
 
-const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
-  palette: {
-    mode,
-    ...(mode === 'light'
-      ? {
-        // palette values for light mode
-        primary: {
-          main: ColorConstants.PRIMARY_DARK,
-        },
-        secondary: {
-          light: '#0066ff',
-          main: '#0044ff',
-          contrastText: '#ffcc00',
-        },
-      }
-      : {
-        // palette values for dark mode
-        primary: {
-          main: ColorConstants.PRIMARY,
-        },
-      }),
-  },
-})
-
-const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+const App = ({ Component, pageProps }: AppProps): ReactElement => {
   const [mode, setMode] = useState<'light' | 'dark'>('light')
 
   const colorMode = useMemo(
@@ -54,7 +29,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 
   const theme = useMemo(
     () =>
-      createTheme(getDesignTokens(mode)),
+      createTheme(getColorsByTheme(mode)),
     [mode]
   )
 
