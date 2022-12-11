@@ -1,6 +1,10 @@
 @import 'resources/variables';
 @import 'resources/mixins';
 
+body {
+  transition: all 0.15s ease-in;
+}
+
 .container {
   max-width: 1820px;
   position: relative;

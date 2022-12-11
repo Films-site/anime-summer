@@ -1,11 +1,19 @@
 import { NextPage } from 'next'
-import { IProps } from './AnimeLayout.interfaces'
 import AnimeLayoutHeader
   from '@/app/components/layouts/AnimeLayout/AnimeLayoutHeader'
 import AnimeLayoutSidebar
   from '@/app/components/layouts/AnimeLayout/AnimeLayoutSidebar'
+import { ReactNode } from 'react'
+import { Button } from '@mui/material'
 
-const AnimeLayout: NextPage<IProps> = ({ children }): JSX.Element => {
+export interface IProps {
+  children: ReactNode
+}
+
+const AnimeLayout: NextPage<IProps> = (
+  {
+    children,
+  }): JSX.Element => {
   return (
     <div className={'container'}>
       <AnimeLayoutHeader />
@@ -13,6 +21,7 @@ const AnimeLayout: NextPage<IProps> = ({ children }): JSX.Element => {
         <div>{children}</div>
         <AnimeLayoutSidebar />
       </div>
+      <Button color={'primary'}>Click on me</Button>
       <footer>footer</footer>
     </div>
   )
