@@ -16,7 +16,7 @@ import { getColorsByTheme } from '@/app/utils/GetColorsByTheme'
 requireSvg()
 
 const App = ({ Component, pageProps }: AppProps): ReactElement => {
-  const [mode, setMode] = useState<'light' | 'dark'>('light')
+  const [mode, setMode] = useState<'light' | 'dark'>('dark')
 
   const colorMode = useMemo(
     () => ({

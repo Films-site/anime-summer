@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const path = require("path")
+const path = require('path')
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
@@ -12,7 +12,7 @@ const nextConfig = {
   swcMinify: true,
   sassOptions: {
     includePaths: [path.join(__dirname, './app/styles')],
-    prependData: `@import "@/app/styles/resources/variables/index.scss";`,
+    prependData: '@import "@/app/styles/resources/variables/index.scss";',
   },
   images : {
     domains : ['localhost']
