@@ -4,9 +4,8 @@ import AnimeLayoutHeader
 import AnimeLayoutSidebar
   from '@/app/components/layouts/AnimeLayout/AnimeLayoutSidebar'
 import { ReactNode } from 'react'
-import { Button } from '@mui/material'
 
-export interface IProps {
+interface IProps {
   children: ReactNode
 }
 
@@ -21,7 +20,6 @@ const AnimeLayout: NextPage<IProps> = (
         <div>{children}</div>
         <AnimeLayoutSidebar />
       </div>
-      <Button color={'primary'}>Click on me</Button>
       <footer>footer</footer>
     </div>
   )

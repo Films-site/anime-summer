@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import HomeSlider from '@/app/components/pages/Home/HomeSlider'
+import HomeSlider from '@/app/components/pages/Home/HomeSlider/HomeSlider'
 
 const Home: NextPage = (): JSX.Element => {
   return (

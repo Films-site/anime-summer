@@ -1,7 +1,11 @@
 import styled from '@emotion/styled'
 
 export const StyledSvg = styled.svg`
-    &.reverse {
-      transform: rotate(180deg);
-    }
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  
+  &.reverse {
+    transform: rotate(180deg);
+  }
 `

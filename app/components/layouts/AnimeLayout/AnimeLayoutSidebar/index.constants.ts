@@ -1,9 +1,12 @@
 export const menuItems = [
   {
-    label: 'Войти',
+    label: 'Настройки',
+    url: '/settings',
+    iconName: 'settings',
   },
   {
     label: 'Избранное',
-    url: '/favorite'
-  }
+    url: '/favorite',
+    iconName: 'heart'
+  },
 ]

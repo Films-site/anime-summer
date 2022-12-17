@@ -1,26 +1,49 @@
 import { PaletteMode } from '@mui/material'
 import { ThemeOptions } from '@mui/material/styles/createTheme'
-import { ColorConstants } from '@/app/constants/color.constant'
+import { ColorsDark, ColorsLight } from '@/app/constants/color.constant'
 
-export const getColorsByTheme = (mode: PaletteMode): ThemeOptions => ({
+interface ICustomTheme extends ThemeOptions {
+  palette: {
+    mode: PaletteMode,
+    primary: {
+      main: ColorsDark | ColorsLight,
+      secondary: ColorsDark | ColorsLight
+    },
+    background: {
+      default: ColorsDark | ColorsLight
+      light: ColorsDark | ColorsLight
+    },
+    text: {
+      primary: ColorsDark | ColorsLight
+    }
+  }
+}
+export const getColorsByTheme = (
+  mode: PaletteMode
+): ICustomTheme => <ICustomTheme>({
   palette: {
     mode,
     ...(mode === 'light'
       ? {
         // palette values for light mode
         primary: {
-          main: ColorConstants.PRIMARY_DARK,
+          main: ColorsLight.BACKGROUND_DARK,
+          secondary: ColorsLight.BACKGROUND_LIGHT
         },
-        secondary: {
-          light: '#0066ff',
-          main: '#0044ff',
-          contrastText: '#ffcc00',
+        background: {
+          light: ColorsLight.BACKGROUND_LIGHT,
         },
       }
       : {
         // palette values for dark mode
         primary: {
-          main: ColorConstants.PRIMARY,
+          main: ColorsDark.PRIMARY_DARK,
+        },
+        text: {
+          primary: ColorsDark.TEXT,
+        },
+        background: {
+          light: ColorsDark.BACKGROUND_LIGHT,
         },
       }),
   },

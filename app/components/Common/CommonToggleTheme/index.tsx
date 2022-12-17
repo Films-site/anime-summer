@@ -6,7 +6,7 @@ const CommonToggleTheme: FC = (): ReactElement => {
   const colorMode = useContext(ThemeContext)
 
   return (
-    <Switch onChange={colorMode.toggleColorMode} />
+    <Switch defaultChecked onChange={colorMode.toggleColorMode} />
   )
 }
 
