@@ -16,6 +16,8 @@ import {
 import CommonIcon from '@/app/components/Common/CommonIcon'
 import Link from 'next/link'
 import { BaseText } from '@/app/styles/general'
+import AnimeLayoutSidebarShare
+  from '@/app/components/layouts/AnimeLayout/AnimeLayoutSidebar/AnimeLayoutSidebarShare'
 
 const AnimeLayoutSidebar: FC = (): ReactElement => {
   const [isAuth, setIsAuth] = useState(true)
@@ -168,9 +170,22 @@ const AnimeLayoutSidebar: FC = (): ReactElement => {
             )
           )
         }
-        <ListItem className={'mt-16'}>
-          <CommonToggleTheme />
-        </ListItem>
+
+        <div className={'anime-layout-sidebar__footer'}>
+          <ListItem
+            sx={{
+              padding: 0,
+              margin: 0,
+              flexDirection: 'column'
+            }}
+          >
+            <AnimeLayoutSidebarShare />
+          </ListItem>
+          <ListItem>
+            <CommonToggleTheme />
+          </ListItem>
+        </div>
+
       </List>
       <StyledExpand
         className={'expand-button'}
