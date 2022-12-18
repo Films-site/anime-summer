@@ -34,6 +34,12 @@ export const StyledSidebar = styled(Box)(
     boxShadow: '-15px 0px 40px 9px rgba(178, 142, 221, 0.1)',
     transition: 'all 0.3s ease-in-out',
 
+    '.anime-layout-sidebar__footer': {
+      display: 'flex',
+      alignItems: 'center',
+      marginTop: '16px'
+    },
+
     '&.hide': {
       padding: '0',
       translate: 'transformX(-100px)',
@@ -88,6 +94,31 @@ export const StyledSidebar = styled(Box)(
 
       '.expand-button': {
         left: '-35px'
+      },
+
+      '.anime-layout-sidebar__footer': {
+        flexDirection: 'column',
+        marginTop: '0',
+
+        li: {
+          '&:first-child': {
+            marginTop: '24px'
+          }
+        }
+      },
+
+      '.menu--active': {
+        '.MuiListItem-root': {
+          '&:nth-child(1)': {
+            transform: 'translate(-175%, -50px)',
+          },
+          '&:nth-child(2)': {
+            transform: 'translate(-150%, 25px)',
+          },
+          '&:nth-child(3)': {
+            transform: 'translate(-100%, 75px)',
+          },
+        }
       }
     },
   })
@@ -121,4 +152,3 @@ export const StyledExpand = styled(Button)(
     }
   })
 )
-
